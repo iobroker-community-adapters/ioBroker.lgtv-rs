@@ -1,0 +1,57 @@
+{
+    "common": {
+        "name": "lgtv-rs",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial adapter",
+                "de": "Initiale Version",
+                "ru": "Первоначальный адаптер",
+                "pt": "Versão inicial",
+                "fr": "Version initiale",
+                "nl": "Eerste release"
+            }
+        },
+        "title": "ioBroker LG TV Adapter with RS-232 to Ethernet gate",
+        "desc": {
+            "en": "ioBroker LG TV Adapter",
+            "de": "ioBroker LG TV Adapter",
+            "ru": "ioBroker LG TV драйвер",
+            "pt": "Modelo de adaptador para o ioBroker",
+            "fr": "ioBroker adaptateur modèle",
+            "nl": "ioBroker LG TV Adapter"
+        },
+        "platform": "Javascript/Node.js",
+        "mode": "daemon",
+        "icon": "lg.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.lgtv-rs/master/admin/lg.png",
+        "keywords": ["lg", "rs232", "tv"],
+        "readme": "https://github.com/instalator/ioBroker.lgtv-rs/blob/master/README.md",
+        "loglevel": "info",
+        "type": "hardware"
+    },
+    "native": {
+        "host": "127.0.0.1",
+        "port": 23
+    },
+    "objects": [
+
+    ],
+    "instanceObjects": [
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "if connected to LG TV",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {
+            }
+        }
+    ]
+}
