@@ -1,5 +1,5 @@
 {
-  "name": "lgtv-rs",
+  "name": "iobroker.lgtv-rs",
   "version": "0.0.1",
   "description": "ioBroker LG TV Adapter with RS-232 to Ethernet gate",
   "author": {
