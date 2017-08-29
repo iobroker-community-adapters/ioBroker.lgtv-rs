@@ -2,6 +2,8 @@
 
 var utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
 var adapter = utils.adapter('lgtv-rs');
+var net = require('net');
+var lgtv = net.Socket();
 
 adapter.on('unload', function (callback) {
     try {
@@ -41,5 +43,5 @@ adapter.on('ready', function () {
 
 function main() {
 
-    
+
 }
