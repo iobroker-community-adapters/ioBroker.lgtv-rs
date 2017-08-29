@@ -29,7 +29,7 @@
         "keywords": ["lg", "rs232", "tv"],
         "readme": "https://github.com/instalator/ioBroker.lgtv-rs/blob/master/README.md",
         "loglevel": "info",
-        "type": "hardware"
+        "type": "media"
     },
     "native": {
         "host": "127.0.0.1",
