@@ -1,0 +1,932 @@
+{
+  "commands":{
+    "ka":{
+      "name": "power",
+      "description":"system power",
+      "values":{
+        "00":{
+          "name":"off",
+          "description":"system power off",
+          "models":"set1"
+        },
+        "01":{
+          "name":"on",
+          "description":"system power on",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query system power",
+          "models":"set1"
+        }
+      }
+    },
+    "kc":{
+      "name": "aspect-ratio",
+      "description":"main picture size)",
+      "values":{
+        "01":{
+          "name":"4:3",
+          "description":"normal screen(4:3)",
+          "models":"set1"
+        },
+        "02":{
+          "name":"16:9",
+          "description":"wide(16:9)",
+          "models":"set1"
+        },
+        "03":{
+          "name":"horizon",
+          "description":"horizon(spectacle)",
+          "models":"set1"
+        },
+        "04":{
+          "name":"zoom1",
+          "description":"zoom 1",
+          "models":"set1"
+        },
+        "05":{
+          "name":"zoom2",
+          "description":"zoom 2",
+          "models":"set1"
+        },
+        "06":{
+          "name":"auto",
+          "description":"auto(set by program)",
+          "models":"set1"
+        },
+        "07":{
+          "name":"14:9",
+          "description":"14:9",
+          "models":"set1"
+        },
+        "08":{
+          "name":"full",
+          "description":"full",
+          "models":"set1"
+        },
+        "09":{
+          "name":"justscan",
+          "description":"just scan (1:1 pixel, pixel match)",
+          "models":"set1"
+        },
+        "0a":{
+          "name":"zoom3",
+          "description":"zoom 3",
+          "models":"set1"
+        },
+        "0b":{
+          "name":"full-wide",
+          "description":"full-wide",
+          "models":"set1"
+        },
+        "10":{
+          "name":"cinema-zoom1",
+          "description":"cinema zoom(1)",
+          "models":"set1"
+        },
+        "1f":{
+          "name":"cinema-zoom16",
+          "description":"cinema zoom(16)",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query aspect-ratio",
+          "models":"set1"
+        }
+      }
+    },
+    "kd":{
+      "name": "screen-mute",
+      "description":"screen mute",
+      "values":{
+        "00":{
+          "name":"off",
+          "description":"screen mute off (picture on)",
+          "models":"set1"
+        },
+        "01":{
+          "name":"on",
+          "description":"screen mute on (picture off)",
+          "models":"set1"
+        },
+        "10":{
+          "name":"onv",
+          "description":"video mute on",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query screen mute",
+          "models":"set1"
+        }
+      }
+    },
+    "ke":{
+      "name": "mute",
+      "description":"volume mute",
+      "values":{
+        "00":{
+          "name":"on",
+          "description":"volume mute on (volume off)",
+          "models":"set1"
+        },
+        "01":{
+          "name":"off",
+          "description":"volume mute off (volume on)",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query volume mute",
+          "models":"set1"
+        }
+      }
+    },
+    "kf":{
+      "name": "volume",
+      "description":"volume control",
+      "values":{
+        "0,64":{
+          "name":"volume",
+          "description":"volume level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query volume level",
+          "models":"set1"
+        }
+      }
+    },
+    "kg":{
+      "name": "contrast",
+      "description":"contrast",
+      "values":{
+        "0,64":{
+          "name":"contrast",
+          "description":"contrast level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query contrast level",
+          "models":"set1"
+        }
+      }
+    },
+    "kh":{
+      "name": "brightness",
+      "description":"brightness",
+      "values":{
+        "0,64":{
+          "name":"brightness",
+          "description":"brightness level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query brightness level",
+          "models":"set1"
+        }
+      }
+    },
+    "ki":{
+      "name": "color",
+      "description":"color",
+      "values":{
+        "0,64":{
+          "name":"color",
+          "description":"color level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query color level",
+          "models":"set1"
+        }
+      }
+    },
+    "kj":{
+      "name": "tint",
+      "description":"tint",
+      "values":{
+        "0,64":{
+          "name":"tint",
+          "description":"tint level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query tint level",
+          "models":"set1"
+        }
+      }
+    },
+    "kk":{
+      "name": "sharpness",
+      "description":"sharpness",
+      "values":{
+        "0,32":{
+          "name":"sharpness",
+          "description":"sharpness level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query sharpness level",
+          "models":"set1"
+        }
+      }
+    },
+    "kl":{
+      "name": "osd-select",
+      "description":"osd select",
+      "values":{
+        "00":{
+          "name":"off",
+          "description":"osd off",
+          "models":"set1"
+        },
+        "01":{
+          "name":"on",
+          "description":"osd on",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query osd status",
+          "models":"set1"
+        }
+      }
+    },
+    "km":{
+      "name": "remote-lock",
+      "description":"remote control lock mode",
+      "values":{
+        "00":{
+          "name":"off",
+          "description":"lock off",
+          "models":"set1"
+        },
+        "01":{
+          "name":"on",
+          "description":"lock on",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query lock status",
+          "models":"set1"
+        }
+      }
+    },
+    "kr":{
+      "name": "treble",
+      "description":"treble",
+      "values":{
+        "0,64":{
+          "name":"treble",
+          "description":"treble level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query treble level",
+          "models":"set1"
+        }
+      }
+    },
+    "ks":{
+      "name": "bass",
+      "description":"bass",
+      "values":{
+        "0,64":{
+          "name":"bass",
+          "description":"bass level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query bass level",
+          "models":"set1"
+        }
+      }
+    },
+    "kt":{
+      "name": "balance",
+      "description":"balance",
+      "values":{
+        "0,64":{
+          "name":"balance",
+          "description":"balance level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query balance level",
+          "models":"set1"
+        }
+      }
+    },
+    "xu":{
+      "name": "color-temperature",
+      "description":"color temperature",
+      "values":{
+        "0,64":{
+          "name":"color-temperature",
+          "description":"color temperature level 0 – 100",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query color temperature level",
+          "models":"set1"
+        }
+      }
+    },
+    "xb":{
+      "name": "input-select",
+      "description":"input select",
+      "values":{
+        "00":{
+          "name":"dtv input1 (antenna)",
+          "description":"dtv input1 (antenna)",
+          "models":"set1"
+        },
+        "01":{
+          "name":"dtv input2 (cable)",
+          "description":"dtv input2 (cable)",
+          "models":"set1"
+        },
+        "10":{
+          "name":"analog input1 (antenna)",
+          "description":"analog input1 (antenna)",
+          "models":"set1"
+        },
+        "11":{
+          "name":"analog input2 (cable)",
+          "description":"analog input2 (cable)",
+          "models":"set1"
+        },
+        "20":{
+          "name":"av input1",
+          "description":"av input1",
+          "models":"set1"
+        },
+        "21":{
+          "name":"av input2",
+          "description":"av input2",
+          "models":"set1"
+        },
+        "30":{
+          "name":"s-video input1",
+          "description":"s-video input1",
+          "models":"set1"
+        },
+        "40":{
+          "name":"component input1",
+          "description":"component input1",
+          "models":"set1"
+        },
+        "41":{
+          "name":"component input2",
+          "description":"component input2",
+          "models":"set1"
+        },
+        "50":{
+          "name":"rgb_ dtv input1",
+          "description":"rgb_ dtv input1",
+          "models":"set1"
+        },
+        "60":{
+          "name":"rgb_ pc input1",
+          "description":"rgb_ pc input1",
+          "models":"set1"
+        },
+        "70":{
+          "name":"dvi_dtv input1",
+          "description":"dvi_dtv input1",
+          "models":"set1"
+        },
+        "80":{
+          "name":"dvi_pc input1",
+          "description":"dvi_pc input1",
+          "models":"set1"
+        },
+        "90":{
+          "name":"hdmi_dtv (auto) input1",
+          "description":"hdmi_dtv (auto) input1",
+          "models":"set1"
+        },
+        "91":{
+          "name":"hdmi_dtv (auto) input2",
+          "description":"hdmi_dtv (auto) input2",
+          "models":"set1"
+        },
+        "92":{
+          "name":"hdmi_dtv (auto) input3",
+          "description":"hdmi_dtv (auto) input3",
+          "models":"set1"
+        },
+        "93":{
+          "name":"hdmi_dtv (auto) input4",
+          "description":"hdmi_dtv (auto) input4",
+          "models":"set1"
+        },
+        "a0":{
+          "name":"hdmi_pc input1",
+          "description":"hdmi_pc input1",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query input select",
+          "models":"set1"
+        }
+      }
+    },
+    "jq":{
+      "name": "energy-saving",
+      "description":"energy saving",
+      "values":{
+        "00":{
+          "name":"off",
+          "description":"off",
+          "models":"set1"
+        },
+        "01":{
+          "name":"minimum",
+          "description":"minimum",
+          "models":"set1"
+        },
+        "02":{
+          "name":"medium",
+          "description":"medium",
+          "models":"set1"
+        },
+        "03":{
+          "name":"maximum",
+          "description":"maximum",
+          "models":"set1"
+        },
+        "04":{
+          "name":"auto",
+          "description":"auto",
+          "models":"set1"
+        },
+        "05":{
+          "name":"screen off",
+          "description":"screen off",
+          "models":"set1"
+        },
+        "ff":{
+          "name":"query",
+          "description":"query system power",
+          "models":"set1"
+        }
+      }
+    }
+  },
+  "modelsets":{
+    "set1": ["ld750"]
+  },
+  "command_mappings":{
+    "power": "ka",
+    "aspect-ratio": "kc",
+    "screen-mute": "kd",
+    "mute": "ke",
+    "volume": "kf",
+    "contrast": "kg",
+    "brightness": "kh",
+    "color": "ki",
+    "tint": "kj",
+    "sharpness": "kk",
+    "osd-select": "kl",
+    "remote-lock": "km",
+    "treble": "kr",
+    "bass": "ks",
+    "balance": "kt",
+    "color-temperature": "xu",
+    "key": "mc",
+    "input-select": "xb",
+    "energy-saving": "jq"
+  },
+  "value_mappings":{
+    "ka": {
+      "off": {
+        "value": "00",
+        "models": "set1"
+      },
+      "on": {
+        "value": "01",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kc": {
+      "cinema-zoom1": {
+        "value": "10",
+        "models": "set1"
+      },
+      "4:3": {
+        "value": "01",
+        "models": "set1"
+      },
+      "16:9": {
+        "value": "02",
+        "models": "set1"
+      },
+      "horizon": {
+        "value": "03",
+        "models": "set1"
+      },
+      "zoom1": {
+        "value": "04",
+        "models": "set1"
+      },
+      "zoom2": {
+        "value": "05",
+        "models": "set1"
+      },
+      "auto": {
+        "value": "06",
+        "models": "set1"
+      },
+      "14:9": {
+        "value": "07",
+        "models": "set1"
+      },
+      "full": {
+        "value": "08",
+        "models": "set1"
+      },
+      "justscan": {
+        "value": "09",
+        "models": "set1"
+      },
+      "zoom3": {
+        "value": "0a",
+        "models": "set1"
+      },
+      "full-wide": {
+        "value": "0b",
+        "models": "set1"
+      },
+      "cinema-zoom16": {
+        "value": "1f",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kd": {
+      "onv": {
+        "value": "10",
+        "models": "set1"
+      },
+      "off": {
+        "value": "00",
+        "models": "set1"
+      },
+      "on": {
+        "value": "01",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "ke": {
+      "on": {
+        "value": "00",
+        "models": "set1"
+      },
+      "off": {
+        "value": "01",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kf": {
+      "volume": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kg": {
+      "contrast": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kh": {
+      "brightness": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "ki": {
+      "color": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kj": {
+      "tint": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kk": {
+      "sharpness": {
+        "value": "0,32",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kl": {
+      "off": {
+        "value": "00",
+        "models": "set1"
+      },
+      "on": {
+        "value": "01",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "km": {
+      "off": {
+        "value": "00",
+        "models": "set1"
+      },
+      "on": {
+        "value": "01",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kr": {
+      "treble": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "ks": {
+      "bass": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "kt": {
+      "balance": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "xu": {
+      "color-temperature": {
+        "value": "0,64",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "mc": {
+      "undefined": {
+        "value": "remote"
+      }
+    },
+    "xb": {
+      "analog input1 (antenna)": {
+        "value": "10",
+        "models": "set1"
+      },
+      "analog input2 (cable)": {
+        "value": "11",
+        "models": "set1"
+      },
+      "av input1": {
+        "value": "20",
+        "models": "set1"
+      },
+      "av input2": {
+        "value": "21",
+        "models": "set1"
+      },
+      "s-video input1": {
+        "value": "30",
+        "models": "set1"
+      },
+      "component input1": {
+        "value": "40",
+        "models": "set1"
+      },
+      "component input2": {
+        "value": "41",
+        "models": "set1"
+      },
+      "rgb_ dtv input1": {
+        "value": "50",
+        "models": "set1"
+      },
+      "rgb_ pc input1": {
+        "value": "60",
+        "models": "set1"
+      },
+      "dvi_dtv input1": {
+        "value": "70",
+        "models": "set1"
+      },
+      "dvi_pc input1": {
+        "value": "80",
+        "models": "set1"
+      },
+      "hdmi_dtv (auto) input1": {
+        "value": "90",
+        "models": "set1"
+      },
+      "hdmi_dtv (auto) input2": {
+        "value": "91",
+        "models": "set1"
+      },
+      "hdmi_dtv (auto) input3": {
+        "value": "92",
+        "models": "set1"
+      },
+      "hdmi_dtv (auto) input4": {
+        "value": "93",
+        "models": "set1"
+      },
+      "dtv input1 (antenna)": {
+        "value": "00",
+        "models": "set1"
+      },
+      "dtv input2 (cable)": {
+        "value": "01",
+        "models": "set1"
+      },
+      "hdmi_pc input1": {
+        "value": "a0",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    },
+    "jq": {
+      "off": {
+        "value": "00",
+        "models": "set1"
+      },
+      "minimum": {
+        "value": "01",
+        "models": "set1"
+      },
+      "medium": {
+        "value": "02",
+        "models": "set1"
+      },
+      "maximum": {
+        "value": "03",
+        "models": "set1"
+      },
+      "auto": {
+        "value": "04",
+        "models": "set1"
+      },
+      "screen off": {
+        "value": "05",
+        "models": "set1"
+      },
+      "query": {
+        "value": "ff",
+        "models": "set1"
+      }
+    }
+  },
+  "remote":{
+    "channel-up" :       "00",
+    "channel-down" :     "01",
+    "volume-up" :        "02",
+    "volume-down" :      "03",
+    "power" :            "08",
+    "mute" :             "09",
+    "input-toggle" :     "0b",
+    "tv" :               "0f",
+    "0" :                "10",
+    "1" :                "11",
+    "2" :                "12",
+    "3" :                "13",
+    "4" :                "14",
+    "5" :                "15",
+    "6" :                "16",
+    "7" :                "17",
+    "8" :                "18",
+    "9" :                "19",
+    "flashback" :        "1a",
+    "favorite" :         "1e",
+    "back" :             "28",
+    "av-mode" :          "30",
+    "up" :               "40",
+    "down" :             "41",
+    "right" :            "06",
+    "left" :             "07",
+    "menu" :             "43",
+    "enter" :            "44",
+    "q menu" :           "45",
+    "-" :                "4c",
+    "list" :             "53",
+    "exit" :             "5b",
+    "widgets" :          "58",
+    "netcast" :          "59",
+    "blue" :             "61",
+    "yellow" :           "63",
+    "green" :            "71",
+    "red" :              "72",
+    "ratio-toggle" :     "79",
+    "simplink" :         "7e",
+    "forward" :          "8e",
+    "rewind" :           "8f",
+    "energy-saving" :    "95",
+    "info" :             "aa",
+    "play" :             "b0",
+    "stop" :             "b1",
+    "pause" :            "ba",
+    "input-tv" :         "d6",
+    "power-on" :         "c4",
+    "power-off" :        "c5",
+    "input-av1" :        "5a",
+    "input-av2" :        "d0",
+    "input-component1" : "bf",
+    "input-component2" : "d4",
+    "input-rgbpc" :      "d5",
+    "input-hdmi1" :      "ce",
+    "input-hdmi2" :      "cc",
+    "input-hdmi3" :      "e9",
+    "input-hdmi4" :      "da",
+    "ratio-4:3" :        "76",
+    "ratio-16:9" :       "77",
+    "zoom" :             "af",
+    "3d" :               "dc",
+    "guide" :            "ab",
+    "text" :             "20",
+    "toption" :          "21",
+    "subtitle" :         "39"
+  }
+}
