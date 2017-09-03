@@ -159,25 +159,33 @@ function parse(msg){
     }
     adapter.log.debug("req:" + JSON.stringify(req));
     if(req.ack){
+        var val;
         for (var key in COMMANDS) {
             if(key[1] == req.cmd){
                 var obj = COMMANDS[key].name;
-                if(COMMANDS[key]['values'][req.val]['name']){
-                    var val = COMMANDS[key]['values'][req.val]['name'];
-                    states[obj] = toBool(val);
-                    //adapter.log.debug("obj:" + val);
-                    if(states[obj] !== old_states[obj]){
-                        old_states[obj] = states[obj];
-                        setObject(obj, states[obj]);
-                    }
-                    if(obj == 'power'){
-                        //states[obj] = true; //for debug
-                        if(states[obj] == true){
-                            get_commands();
-                        }
+                if (VALUE_MAPPINGS[key][obj]){
+                    if (~VALUE_MAPPINGS[key][obj]['value'].indexOf(',')){
+                        val = parseInt(req.val, 16);
+                        //adapter.log.debug("val " + val);
                     }
                 } else {
-                    adapter.log.error("Error not found name in " + COMMANDS[key]['values'][req.val]);
+                    if (COMMANDS[key]['values'][req.val]['name']){
+                        val = COMMANDS[key]['values'][req.val]['name'];
+                    } else {
+                        adapter.log.error("Error not found name in " + COMMANDS[key]['values'][req.val]);
+                    }
+                }
+                states[obj] = toBool(val);
+                //adapter.log.debug("obj:" + val);
+                if (states[obj] !== old_states[obj]){
+                    old_states[obj] = states[obj];
+                    setObject(obj, states[obj]);
+                }
+                if (obj == 'power'){
+                    //states[obj] = true; //for debug
+                    if (states[obj] == true){
+                        get_commands();
+                    }
                 }
             }
         }
@@ -253,7 +261,7 @@ function setObject(name, val){
 function toBool(s){
     if(s == 'on'){
         s = true;
-    } else {
+    } else if (s == 'off'){
         s = false;
     }
     return s;

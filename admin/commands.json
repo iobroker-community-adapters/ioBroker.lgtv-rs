@@ -148,7 +148,7 @@
       "name": "volume",
       "description":"volume control",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"volume",
           "description":"volume level 0 – 100",
           "models":"set1"
@@ -164,7 +164,7 @@
       "name": "contrast",
       "description":"contrast",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"contrast",
           "description":"contrast level 0 – 100",
           "models":"set1"
@@ -180,7 +180,7 @@
       "name": "brightness",
       "description":"brightness",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"brightness",
           "description":"brightness level 0 – 100",
           "models":"set1"
@@ -196,7 +196,7 @@
       "name": "color",
       "description":"color",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"color",
           "description":"color level 0 – 100",
           "models":"set1"
@@ -212,7 +212,7 @@
       "name": "tint",
       "description":"tint",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"tint",
           "description":"tint level 0 – 100",
           "models":"set1"
@@ -286,7 +286,7 @@
       "name": "treble",
       "description":"treble",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"treble",
           "description":"treble level 0 – 100",
           "models":"set1"
@@ -302,7 +302,7 @@
       "name": "bass",
       "description":"bass",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"bass",
           "description":"bass level 0 – 100",
           "models":"set1"
@@ -318,7 +318,7 @@
       "name": "balance",
       "description":"balance",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"balance",
           "description":"balance level 0 – 100",
           "models":"set1"
@@ -334,7 +334,7 @@
       "name": "color-temperature",
       "description":"color temperature",
       "values":{
-        "0,64":{
+        "0,100":{
           "name":"color-temperature",
           "description":"color temperature level 0 – 100",
           "models":"set1"
