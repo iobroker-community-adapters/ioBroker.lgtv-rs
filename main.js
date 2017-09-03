@@ -35,6 +35,7 @@ adapter.on('objectChange', function (id, obj) {
 adapter.on('stateChange', function (id, state) {
     if (connection){
         if (state && !state.ack) {
+            tabu = true;
             adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
             var ids = id.split(".");
             var name = ids[ids.length - 2].toString();
@@ -47,14 +48,25 @@ adapter.on('stateChange', function (id, state) {
             }
 
             var cmd = COMMAND_MAPPINGS[command];
+            var key;
             if(name == 'remote'){
-                var key = 'mc 00 ' + REMOTE_CMDS[command];
+                key = 'mc 00 ' + REMOTE_CMDS[command];
                 send(key);
-            }
-            if (cmd){
-
             } else {
-                adapter.log.error('Error command =*' + cmd + '=' + val + '#');
+                if (cmd){
+                    if(VALUE_MAPPINGS[cmd][command]){
+                        if(~VALUE_MAPPINGS[cmd][command]['value'].indexOf(',')){
+                            key = cmd + ' 00 ' + (parseInt(val)).toString(16);
+                        }
+                    } else {
+                        if(VALUE_MAPPINGS[cmd][val]['value']){
+                            key = cmd + ' 00 ' + VALUE_MAPPINGS[cmd][val]['value'];
+                        }
+                    }
+                    send(key);
+                } else {
+                    adapter.log.error('Error command ' + cmd);
+                }
             }
         }
     }
@@ -79,28 +91,40 @@ adapter.on('ready', function () {
 function json(){
     var cmd_mappings = {};
     var val_mappings = {};
-    for (var key in COMMANDS) {
-        cmd_mappings[COMMANDS[key]['name']] = key;
-    }
-    for (var key in COMMANDS) {
-        //adapter.log.info('(var key in COMMANDS) key: ' + key);
-        val_mappings[key] = {};
-        for (var k in COMMANDS[key]['values']) {
-            //adapter.log.info('(var k in COMMANDS[key][values]) k: ' + k);
-            val_mappings[key][COMMANDS[key]['values'][k]['name']] = {};
-            val_mappings[key][COMMANDS[key]['values'][k]['name']]['value'] = k;
-            val_mappings[key][COMMANDS[key]['values'][k]['name']]['models'] = COMMANDS[key]['values'][k]['models'];
+    var key;
+    var file = lgtv_commands;
+    for (key in COMMANDS) {
+        if(COMMANDS.hasOwnProperty(key)){
+            cmd_mappings[COMMANDS[key]['name']] = key;
         }
     }
-    adapter.log.debug('cmd_mappings: ' + JSON.stringify(cmd_mappings));
-    adapter.log.debug('val_mappings: ' + JSON.stringify(val_mappings));
+    for (key in COMMANDS) {
+        if(COMMANDS.hasOwnProperty(key)){
+            //adapter.log.info('(var key in COMMANDS) key: ' + key);
+            val_mappings[key] = {};
+            for (var k in COMMANDS[key]['values']) {
+                if(COMMANDS[key]['values'].hasOwnProperty(k)){
+                    //adapter.log.info('(var k in COMMANDS[key][values]) k: ' + k);
+                    val_mappings[key][COMMANDS[key]['values'][k]['name']] = {};
+                    val_mappings[key][COMMANDS[key]['values'][k]['name']]['value'] = k;
+                    val_mappings[key][COMMANDS[key]['values'][k]['name']]['models'] = COMMANDS[key]['values'][k]['models'];
+                }
+            }
+        }
+    }
+    file.command_mappings = cmd_mappings;
+    file.value_mappings = val_mappings;
+    
+
 }
 
 function main() {
     adapter.subscribeStates('*');
     for (var key in COMMANDS) {
-        if(COMMANDS[key].values.hasOwnProperty('ff') && COMMANDS[key]['name'] !== 'power'){
-            querycmd.push(key + ' 00 ' + 'ff');
+        if(COMMANDS.hasOwnProperty(key)){
+            if (COMMANDS[key].values.hasOwnProperty('ff') && COMMANDS[key]['name'] !== 'power'){
+                querycmd.push(key + ' 00 ' + 'ff');
+            }
         }
     }
     connect();
@@ -118,6 +142,7 @@ function connect(cb){
     lgtv = net.connect(port, host, function() {
         adapter.setState('info.connection', true, true);
         adapter.log.info('LG TV connected to: ' + host + ':' + port);
+        connection = true;
         clearInterval(query);
         query = setInterval(function() {
             if(!tabu){
@@ -128,10 +153,15 @@ function connect(cb){
     });
     lgtv.on('data', function(chunk) {
         in_msg += chunk;
-        if(in_msg.length == 10){
-            //in_msg = in_msg.slice(1, 35);
-            //adapter.log.debug("LG TV incomming: " + in_msg);
+        if(in_msg[9] =='x'){
+            if(in_msg.length > 10){
+                in_msg = in_msg.substring(0,10);
+            }
+            adapter.log.debug("LG TV incomming: " + in_msg);
             parse(in_msg);
+            in_msg = '';
+        }
+        if(in_msg.length > 15){
             in_msg = '';
         }
     });
@@ -149,7 +179,6 @@ function connect(cb){
 }
 
 function parse(msg){
-    //a 01 OK01x
     var req = {};
     if (msg[msg.length - 1] == 'x'){
         req.cmd = msg[0];
@@ -161,43 +190,44 @@ function parse(msg){
     if(req.ack){
         var val;
         for (var key in COMMANDS) {
-            if(key[1] == req.cmd){
-                var obj = COMMANDS[key].name;
-                if (VALUE_MAPPINGS[key][obj]){
-                    if (~VALUE_MAPPINGS[key][obj]['value'].indexOf(',')){
-                        val = parseInt(req.val, 16);
-                        //adapter.log.debug("val " + val);
-                    }
-                } else {
-                    if (COMMANDS[key]['values'][req.val]['name']){
-                        val = COMMANDS[key]['values'][req.val]['name'];
+            if(COMMANDS.hasOwnProperty(key)){
+                if (key[1] == req.cmd){
+                    var obj = COMMANDS[key].name;
+                    if (VALUE_MAPPINGS[key][obj]){
+                        if (~VALUE_MAPPINGS[key][obj]['value'].indexOf(',')){
+                            val = parseInt(req.val, 16);
+                        }
                     } else {
-                        adapter.log.error("Error not found name in " + COMMANDS[key]['values'][req.val]);
+                        if (COMMANDS[key]['values'][req.val]['name']){
+                            val = COMMANDS[key]['values'][req.val]['name'];
+                        } else {
+                            adapter.log.error("Error not found name in " + COMMANDS[key]['values'][req.val]);
+                        }
                     }
-                }
-                states[obj] = toBool(val);
-                //adapter.log.debug("obj:" + val);
-                if (states[obj] !== old_states[obj]){
-                    old_states[obj] = states[obj];
-                    setObject(obj, states[obj]);
-                }
-                if (obj == 'power'){
-                    //states[obj] = true; //for debug
-                    if (states[obj] == true){
-                        get_commands();
+                    states[obj] = toBool(val);
+                    //adapter.log.debug("obj:" + val);
+                    if (states[obj] !== old_states[obj]){
+                        old_states[obj] = states[obj];
+                        setObject(obj, states[obj]);
+                    }
+                    if (obj == 'power'){
+                        //states[obj] = true; //for debug
+                        if (states[obj] == true){
+                            get_commands();
+                        }
                     }
                 }
             }
         }
-        adapter.log.debug("states:" + JSON.stringify(states));
+        //adapter.log.debug("states:" + JSON.stringify(states));
     } else if (req.val == '00'){
-        adapter.log.error('Illegal Code');
+        adapter.log.debug('Illegal Code');
     }
 }
 
 function get_commands(){
     tabu = true;
-    var tm = 2000;
+    var tm = 5000;
     var interval;
     setTimeout(function (){
         tabu = false;
@@ -205,7 +235,9 @@ function get_commands(){
     querycmd.forEach(function(cmd, i, arr) {
         interval = tm * i;
         setTimeout(function() {
-            send(cmd);
+            cmd = cmd + '\n\r';
+            adapter.log.debug('Send Command: ' + cmd);
+            lgtv.write(cmd);
         }, interval);
     });
 }
@@ -215,7 +247,7 @@ function send(cmd){
         cmd = cmd + '\n\r';
         adapter.log.debug('Send Command: ' + cmd);
         lgtv.write(cmd);
-        //tabu = false;
+        tabu = false;
     }
 }
 
@@ -224,18 +256,20 @@ function setObject(name, val){
     var role = 'media';
     adapter.log.debug('name:' + name);
     var odj_cmd = COMMANDS[COMMAND_MAPPINGS[name]];
+    var obj_val;
     if(VALUE_MAPPINGS[COMMAND_MAPPINGS[name]]){
-        var obj_val = VALUE_MAPPINGS[COMMAND_MAPPINGS[name]];
+        obj_val = VALUE_MAPPINGS[COMMAND_MAPPINGS[name]];
         //adapter.log.debug('odj_cmd:' + JSON.stringify(odj_cmd));
         adapter.getState(odj_cmd, function (err, state){
             if (odj_cmd){
                 if ((err || !state) && odj_cmd.hasOwnProperty('description')){
                     if (odj_cmd.hasOwnProperty('values')){
-                        if (obj_val.hasOwnProperty('on') || obj_val.hasOwnProperty('off')){
+                        /*if (obj_val.hasOwnProperty('on') || obj_val.hasOwnProperty('off')){
                             type = 'boolean';
                         } else {
                             role = 'indicator';
-                        }
+                        }*/
+                        role = 'indicator';
                     }
                     adapter.setObject(name, {
                         type:   'state',
@@ -294,6 +328,7 @@ function err(e){
         clearInterval(query);
         adapter.log.error('Error socket: Reconnect after 15 sec...');
         adapter.setState('info.connection', false, true);
+        connection = false;
         setTimeout(function() {
             main();
         }, 15000);
@@ -306,7 +341,9 @@ function CreatObject(){
     adapter.getState('remote.0', function (err, state){
         if ((err || !state)){
             for (var key in REMOTE_CMDS) {
-                arr.push(key);
+                if(REMOTE_CMDS.hasOwnProperty(key)){
+                    arr.push(key);
+                }
             }
             arr.forEach(function(cmd, i) {
                 interval = t * i;

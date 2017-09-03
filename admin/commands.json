@@ -23,7 +23,7 @@
     },
     "kc":{
       "name": "aspect-ratio",
-      "description":"main picture size)",
+      "description":"main picture size",
       "values":{
         "01":{
           "name":"4:3",
@@ -289,12 +289,12 @@
         "0,100":{
           "name":"treble",
           "description":"treble level 0 – 100",
-          "models":"set1"
+          "models":"set2"
         },
         "ff":{
           "name":"query",
           "description":"query treble level",
-          "models":"set1"
+          "models":"set2"
         }
       }
     },
@@ -305,12 +305,12 @@
         "0,100":{
           "name":"bass",
           "description":"bass level 0 – 100",
-          "models":"set1"
+          "models":"set2"
         },
         "ff":{
           "name":"query",
           "description":"query bass level",
-          "models":"set1"
+          "models":"set2"
         }
       }
     },
@@ -351,92 +351,92 @@
       "description":"input select",
       "values":{
         "00":{
-          "name":"dtv input1 (antenna)",
+          "name":"dtv1",
           "description":"dtv input1 (antenna)",
           "models":"set1"
         },
         "01":{
-          "name":"dtv input2 (cable)",
+          "name":"dtv2",
           "description":"dtv input2 (cable)",
           "models":"set1"
         },
         "10":{
-          "name":"analog input1 (antenna)",
+          "name":"analog1",
           "description":"analog input1 (antenna)",
           "models":"set1"
         },
         "11":{
-          "name":"analog input2 (cable)",
+          "name":"analog2",
           "description":"analog input2 (cable)",
           "models":"set1"
         },
         "20":{
-          "name":"av input1",
+          "name":"av1",
           "description":"av input1",
           "models":"set1"
         },
         "21":{
-          "name":"av input2",
+          "name":"av2",
           "description":"av input2",
           "models":"set1"
         },
         "30":{
-          "name":"s-video input1",
+          "name":"s-video1",
           "description":"s-video input1",
           "models":"set1"
         },
         "40":{
-          "name":"component input1",
+          "name":"component1",
           "description":"component input1",
           "models":"set1"
         },
         "41":{
-          "name":"component input2",
+          "name":"component2",
           "description":"component input2",
           "models":"set1"
         },
         "50":{
-          "name":"rgb_ dtv input1",
+          "name":"rgb1",
           "description":"rgb_ dtv input1",
           "models":"set1"
         },
         "60":{
-          "name":"rgb_ pc input1",
+          "name":"pc1",
           "description":"rgb_ pc input1",
           "models":"set1"
         },
         "70":{
-          "name":"dvi_dtv input1",
+          "name":"dvi_dtv1",
           "description":"dvi_dtv input1",
           "models":"set1"
         },
         "80":{
-          "name":"dvi_pc input1",
+          "name":"dvi_pc1",
           "description":"dvi_pc input1",
           "models":"set1"
         },
         "90":{
-          "name":"hdmi_dtv (auto) input1",
+          "name":"hdmi1",
           "description":"hdmi_dtv (auto) input1",
           "models":"set1"
         },
         "91":{
-          "name":"hdmi_dtv (auto) input2",
+          "name":"hdmi2",
           "description":"hdmi_dtv (auto) input2",
           "models":"set1"
         },
         "92":{
-          "name":"hdmi_dtv (auto) input3",
+          "name":"hdmi3",
           "description":"hdmi_dtv (auto) input3",
           "models":"set1"
         },
         "93":{
-          "name":"hdmi_dtv (auto) input4",
+          "name":"hdmi4",
           "description":"hdmi_dtv (auto) input4",
           "models":"set1"
         },
         "a0":{
-          "name":"hdmi_pc input1",
+          "name":"hdmi_pc",
           "description":"hdmi_pc input1",
           "models":"set1"
         },
@@ -457,17 +457,17 @@
           "models":"set1"
         },
         "01":{
-          "name":"minimum",
+          "name":"min",
           "description":"minimum",
           "models":"set1"
         },
         "02":{
-          "name":"medium",
+          "name":"med",
           "description":"medium",
           "models":"set1"
         },
         "03":{
-          "name":"maximum",
+          "name":"max",
           "description":"maximum",
           "models":"set1"
         },
@@ -477,7 +477,7 @@
           "models":"set1"
         },
         "05":{
-          "name":"screen off",
+          "name":"screen-off",
           "description":"screen off",
           "models":"set1"
         },
@@ -490,7 +490,8 @@
     }
   },
   "modelsets":{
-    "set1": ["ld750"]
+    "set1": ["ld750"],
+    "set2": []
   },
   "command_mappings":{
     "power": "ka",
@@ -620,7 +621,7 @@
     },
     "kf": {
       "volume": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -630,7 +631,7 @@
     },
     "kg": {
       "contrast": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -640,7 +641,7 @@
     },
     "kh": {
       "brightness": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -650,7 +651,7 @@
     },
     "ki": {
       "color": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -660,7 +661,7 @@
     },
     "kj": {
       "tint": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -708,7 +709,7 @@
     },
     "kr": {
       "treble": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -718,7 +719,7 @@
     },
     "ks": {
       "bass": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -728,7 +729,7 @@
     },
     "kt": {
       "balance": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -738,7 +739,7 @@
     },
     "xu": {
       "color-temperature": {
-        "value": "0,64",
+        "value": "0,100",
         "models": "set1"
       },
       "query": {
@@ -746,81 +747,76 @@
         "models": "set1"
       }
     },
-    "mc": {
-      "undefined": {
-        "value": "remote"
-      }
-    },
     "xb": {
-      "analog input1 (antenna)": {
+      "analog1": {
         "value": "10",
         "models": "set1"
       },
-      "analog input2 (cable)": {
+      "analog2": {
         "value": "11",
         "models": "set1"
       },
-      "av input1": {
+      "av1": {
         "value": "20",
         "models": "set1"
       },
-      "av input2": {
+      "av2": {
         "value": "21",
         "models": "set1"
       },
-      "s-video input1": {
+      "s-video1": {
         "value": "30",
         "models": "set1"
       },
-      "component input1": {
+      "component1": {
         "value": "40",
         "models": "set1"
       },
-      "component input2": {
+      "component2": {
         "value": "41",
         "models": "set1"
       },
-      "rgb_ dtv input1": {
+      "rgb1": {
         "value": "50",
         "models": "set1"
       },
-      "rgb_ pc input1": {
+      "pc1": {
         "value": "60",
         "models": "set1"
       },
-      "dvi_dtv input1": {
+      "dvi_dtv1": {
         "value": "70",
         "models": "set1"
       },
-      "dvi_pc input1": {
+      "dvi_pc1": {
         "value": "80",
         "models": "set1"
       },
-      "hdmi_dtv (auto) input1": {
+      "hdmi1": {
         "value": "90",
         "models": "set1"
       },
-      "hdmi_dtv (auto) input2": {
+      "hdmi2": {
         "value": "91",
         "models": "set1"
       },
-      "hdmi_dtv (auto) input3": {
+      "hdmi3": {
         "value": "92",
         "models": "set1"
       },
-      "hdmi_dtv (auto) input4": {
+      "hdmi4": {
         "value": "93",
         "models": "set1"
       },
-      "dtv input1 (antenna)": {
+      "dtv1": {
         "value": "00",
         "models": "set1"
       },
-      "dtv input2 (cable)": {
+      "dtv2": {
         "value": "01",
         "models": "set1"
       },
-      "hdmi_pc input1": {
+      "hdmi_pc": {
         "value": "a0",
         "models": "set1"
       },
