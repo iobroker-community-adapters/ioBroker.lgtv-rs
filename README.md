@@ -7,5 +7,9 @@ ioBroker LG TV RS232 adapter
 
 [![NPM](https://nodei.co/npm/iobroker.lgtv-rs.png?downloads=true)](https://nodei.co/npm/iobroker.lgtv-rs/)
 
+
+### 0.0.2
+  (instalator) alfa
+
 ### 0.0.1
   (instalator) initial

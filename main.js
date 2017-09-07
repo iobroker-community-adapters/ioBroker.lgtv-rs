@@ -114,8 +114,6 @@ function json(){
     }
     file.command_mappings = cmd_mappings;
     file.value_mappings = val_mappings;
-    
-
 }
 
 function main() {
