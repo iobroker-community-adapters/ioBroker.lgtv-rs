@@ -19,12 +19,12 @@
         },
         "title": "ioBroker LG TV Adapter with RS-232 to Ethernet gate",
         "desc": {
-            "en": "ioBroker LG TV Adapter",
-            "de": "ioBroker LG TV Adapter",
-            "ru": "ioBroker LG TV драйвер",
-            "pt": "Modelo de adaptador para o ioBroker",
-            "fr": "ioBroker adaptateur modèle",
-            "nl": "ioBroker LG TV Adapter"
+            "en": "Controls LG TV over RS232 interface",
+            "de": "Controls LG TV over RS232 interface",
+            "ru": "Управление LG TV через интерфейс RS232.",
+            "pt": "Controls LG TV over RS232 interface",
+            "fr": "Controls LG TV over RS232 interface",
+            "nl": "Controls LG TV over RS232 interface"
         },
         "platform": "Javascript/Node.js",
         "mode": "daemon",
