@@ -29,6 +29,9 @@
         "platform": "Javascript/Node.js",
         "mode": "daemon",
         "icon": "lg.png",
+        "authors": [
+            "instalator"
+        ],
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.lgtv-rs/master/admin/lg.png",
         "keywords": ["lg", "rs232", "tv"],
