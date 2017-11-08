@@ -317,19 +317,22 @@ function reconnect(){
     connection = false;
     recnt = setTimeout(function() {
         connect();
-    }, 5000);
+    }, 60000);
 }
 
 function err(e){
     if (e){
-        adapter.log.error("LG TV " + e);
         clearInterval(query);
-        adapter.log.error('Error socket: Reconnect after 15 sec...');
-        adapter.setState('info.connection', false, true);
-        connection = false;
-        setTimeout(function() {
-            main();
-        }, 15000);
+        if(!~e.indexOf('ECONNREFUSED')){
+            adapter.log.error("LG TV " + e);
+            adapter.log.error('Error socket: Reconnect after 15 sec...');
+            adapter.setState('info.connection', false, true);
+            connection = false;
+            setTimeout(
+                function (){
+                    main();
+                }, 15000);
+        }
     }
 }
 
