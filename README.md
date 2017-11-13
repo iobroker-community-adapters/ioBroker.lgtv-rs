@@ -19,7 +19,7 @@ You will also need an Ethernet Shield W5100 or W5500 and an RS232 to TTL convert
 ## Support
 Supported models: LD750 to be...
 
-### 0.0.2
+### 0.0.3
   (instalator) alfa
 
 ### 0.0.1
