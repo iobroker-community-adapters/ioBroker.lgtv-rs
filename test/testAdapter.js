@@ -138,3 +138,4 @@ describe('Test ' + adapterShortName + ' adapter', function() {
         });
     });
 });
+ 
