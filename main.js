@@ -165,6 +165,9 @@ function connect(cb){
     });
 
     lgtv.on('error', function(e) {
+        if (e.code == "ENOTFOUND" || e.code == "ECONNREFUSED" || e.code == "ETIMEDOUT") {
+            lgtv.destroy();
+        }
         err(e);
     });
 
