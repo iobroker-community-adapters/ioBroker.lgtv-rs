@@ -324,6 +324,7 @@ function reconnect(){
 }
 
 function err(e){
+    e = e.toString();
     if (e){
         clearInterval(query);
         if(!~e.indexOf('ECONNREFUSED')){
