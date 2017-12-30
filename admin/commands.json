@@ -85,6 +85,11 @@
           "description":"cinema zoom(1)",
           "models":"set1"
         },
+		"11":{
+          "name":"cinema-zoom2",
+          "description":"cinema zoom(2)",
+          "models":"set1"
+        },
         "1f":{
           "name":"cinema-zoom16",
           "description":"cinema zoom(16)",
@@ -532,6 +537,10 @@
     "kc": {
       "cinema-zoom1": {
         "value": "10",
+        "models": "set1"
+      },
+	  "cinema-zoom2": {
+        "value": "11",
         "models": "set1"
       },
       "4:3": {
