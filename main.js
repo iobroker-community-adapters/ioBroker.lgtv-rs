@@ -129,7 +129,7 @@ function main() {
 }
 
 function connect(cb){
-    adapter.config.host = '192.168.1.56';
+    //adapter.config.host = '192.168.1.56';
     var in_msg = '';
     var host = adapter.config.host ? adapter.config.host : '192.168.1.56';
     var port = adapter.config.port ? adapter.config.port : 23;
