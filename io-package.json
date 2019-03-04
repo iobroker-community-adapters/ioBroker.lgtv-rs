@@ -29,6 +29,7 @@
             "fr": "Controls LG TV over RS232 interface",
             "nl": "Controls LG TV over RS232 interface"
         },
+        "license": "MIT",
         "platform": "Javascript/Node.js",
         "mode": "daemon",
         "icon": "lg.png",
