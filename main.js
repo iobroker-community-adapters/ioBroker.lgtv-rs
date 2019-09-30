@@ -1,6 +1,6 @@
 "use strict";
 
-var utils = require('@iobroker/adapter-core'); // Get common adapter utils
+var utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
 var adapter = utils.adapter('lgtv-rs');
 var net = require('net');
 var lgtv_commands = require(__dirname + '/admin/commands.json'),
@@ -14,6 +14,7 @@ var tabu = false;
 var polling_time = 5000;
 var states = {}, old_states = {};
 var querycmd = [];
+var remote_command_send = false;
 
 adapter.on('unload', function (callback) {
     if(lgtv){
@@ -50,6 +51,7 @@ adapter.on('stateChange', function (id, state) {
             var cmd = COMMAND_MAPPINGS[command];
             var key;
             if(name == 'remote'){
+				remote_command_send = true;
                 key = 'mc 00 ' + REMOTE_CMDS[command];
                 send(key);
             } else {
@@ -187,23 +189,23 @@ function parse(msg){
         req.ack = getack(msg[5] + msg[6]);
         req.val = msg[7] + msg[8];
     }
-    adapter.log.debug("req:" + JSON.stringify(req));
+    adapter.log.debug("req: " + JSON.stringify(req));
     if(req.ack){
         var val;
         for (var key in COMMANDS) {
             if(COMMANDS.hasOwnProperty(key)){
-                if (key[1] == req.cmd){
+                if (key[1] == req.cmd && !remote_command_send){
                     var obj = COMMANDS[key].name;
                     if (VALUE_MAPPINGS[key][obj]){
                         if (~VALUE_MAPPINGS[key][obj]['value'].indexOf(',')){
                             val = parseInt(req.val, 16);
                         }
                     } else {
-                        if (COMMANDS[key]['values'][req.val]['name']){
-                            val = COMMANDS[key]['values'][req.val]['name'];
-                        } else {
-                            adapter.log.error("Error not found name in " + COMMANDS[key]['values'][req.val]);
-                        }
+						if (COMMANDS[key]['values'][req.val]['name']){
+							val = COMMANDS[key]['values'][req.val]['name'];
+						} else {
+							adapter.log.error("Error not found name in " + COMMANDS[key]['values'][req.val]);
+						} 
                     }
                     states[obj] = toBool(val);
                     //adapter.log.debug("obj:" + val);
@@ -217,7 +219,17 @@ function parse(msg){
                             get_commands();
                         }
                     }
-                }
+                } else if (remote_command_send && key[1] == req.cmd){
+					remote_command_send = false;
+					for (var key in REMOTE_CMDS) {
+						if(REMOTE_CMDS.hasOwnProperty(key)){
+							if(REMOTE_CMDS[key] == req.val){
+								adapter.log.debug("Remote cmd OK! key: { " + key + " } key, val: {" + req.val + "}");
+								break;
+							}
+						}
+					}
+				}
             }
         }
         //adapter.log.debug("states:" + JSON.stringify(states));
