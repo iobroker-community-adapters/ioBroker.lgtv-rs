@@ -20,7 +20,7 @@
                 "nl": "Eerste release"
             }
         },
-        "title": "ioBroker LG TV Adapter with RS-232 to Ethernet gate",
+        "title": "LG TV control with RS-232",
         "desc": {
             "en": "Controls LG TV over RS232 interface",
             "de": "Controls LG TV over RS232 interface",
