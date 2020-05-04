@@ -1,69 +1,86 @@
 {
-    "common": {
-        "name": "lgtv-rs",
-        "version": "0.0.4",
-        "news": {
-            "0.0.4": {
-                "en": "fix error",
-                "de": "fix error",
-                "ru": "fix error",
-                "pt": "fix error",
-                "fr": "fix error",
-                "nl": "fix error"
-            },
-            "0.0.1": {
-                "en": "initial adapter",
-                "de": "Initiale Version",
-                "ru": "Первоначальный адаптер",
-                "pt": "Versão inicial",
-                "fr": "Version initiale",
-                "nl": "Eerste release"
-            }
-        },
-        "title": "LG TV control with RS-232",
-        "desc": {
-            "en": "Controls LG TV over RS232 interface",
-            "de": "Controls LG TV over RS232 interface",
-            "ru": "Управление LG TV через интерфейс RS232.",
-            "pt": "Controls LG TV over RS232 interface",
-            "fr": "Controls LG TV over RS232 interface",
-            "nl": "Controls LG TV over RS232 interface"
-        },
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "mode": "daemon",
-        "icon": "lg.png",
-        "authors": [
-            "instalator"
-        ],
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.lgtv-rs/master/admin/lg.png",
-        "keywords": ["lg", "rs232", "tv"],
-        "readme": "https://github.com/instalator/ioBroker.lgtv-rs/blob/master/README.md",
-        "loglevel": "info",
-        "type": "multimedia"
+  "common": {
+    "name": "lgtv-rs",
+    "version": "0.1.0",
+    "news": {
+      "0.1.0": {
+        "en": "support compact mode\nsupport admin3\nrefactoring",
+        "de": "support compact mode\nsupport admin3\nrefactoring",
+        "ru": "support compact mode\nsupport admin3\nrefactoring",
+        "es": "support compact mode\nsupport admin3\nrefactoring",
+        "fr": "support compact mode\nsupport admin3\nrefactoring",
+        "it": "support compact mode\nsupport admin3\nrefactoring",
+        "nl": "support compact mode\nsupport admin3\nrefactoring",
+        "pt": "support compact mode\nsupport admin3\nrefactoring",
+        "pl": "support compact mode\nsupport admin3\nrefactoring",
+        "zh-cn": "support compact mode\nsupport admin3\nrefactoring"
+      },
+      "0.0.4": {
+        "en": "fix error",
+        "de": "fix error",
+        "ru": "fix error",
+        "pt": "fix error",
+        "fr": "fix error",
+        "nl": "fix error"
+      },
+      "0.0.1": {
+        "en": "initial adapter",
+        "de": "Initiale Version",
+        "ru": "Первоначальный адаптер",
+        "pt": "Versão inicial",
+        "fr": "Version initiale",
+        "nl": "Eerste release"
+      }
     },
-    "native": {
-        "host": "127.0.0.1",
-        "port": 23
+    "title": "LG TV control with RS-232",
+    "desc": {
+      "en": "Controls LG TV over RS232 interface",
+      "de": "Controls LG TV over RS232 interface",
+      "ru": "Управление LG TV через интерфейс RS232.",
+      "pt": "Controls LG TV over RS232 interface",
+      "fr": "Controls LG TV over RS232 interface",
+      "nl": "Controls LG TV over RS232 interface"
     },
-    "objects": [
-
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "icon": "lg.png",
+    "materialize": true,
+    "compact": true,
+    "authors": [
+      "instalator"
     ],
-    "instanceObjects": [
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "if connected to LG TV",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {
-            }
-        }
-    ]
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.lgtv-rs/master/admin/lg.png",
+    "keywords": [
+      "lg",
+      "rs232",
+      "tv"
+    ],
+    "readme": "https://github.com/instalator/ioBroker.lgtv-rs/blob/master/README.md",
+    "loglevel": "info",
+    "type": "multimedia"
+  },
+  "native": {
+    "host": "127.0.0.1",
+    "port": 23
+  },
+  "objects": [
+  ],
+  "instanceObjects": [
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "if connected to LG TV",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {
+      }
+    }
+  ]
 }
