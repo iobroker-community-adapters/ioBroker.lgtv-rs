@@ -1,9 +1,20 @@
 {
   "common": {
     "name": "lgtv-rs",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "news": {
-      "0.1.0": {
+      "0.1.1": {
+        "en": "change test",
+        "de": "change test",
+        "ru": "change test",
+        "es": "change test",
+        "fr": "change test",
+        "it": "change test",
+        "nl": "change test",
+        "pt": "change test",
+        "pl": "change test",
+        "zh-cn": "change test"
+      },"0.1.0": {
         "en": "support compact mode\nsupport admin3\nrefactoring",
         "de": "support compact mode\nsupport admin3\nrefactoring",
         "ru": "support compact mode\nsupport admin3\nrefactoring",
