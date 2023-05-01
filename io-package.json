@@ -44,6 +44,19 @@
       }
     },
     "title": "LG TV control with RS-232",
+    "titleLang": {
+      "en": "LG TV control over RS232 interface",
+      "de": "LG TV Steuerung über RS232 Schnittstelle",
+      "ru": "LG TV контроль над интерфейсом RS232",
+      "pt": "LG TV control sobre interface RS232",
+      "nl": "LG TV controle over RS232 interface",
+      "fr": "Contrôle TV LG sur l'interface RS232",
+      "it": "Controllo TV LG sull'interfaccia RS232",
+      "es": "Control de TV LG sobre interfaz RS232",
+      "pl": "LG TV kontroluje interfejs RS232",
+      "uk": "LG TV control інтерфейс RS232",
+      "zh-cn": "LG 对RS232接口的电视控制"
+    },
     "desc": {
       "en": "Controls LG TV over RS232 interface",
       "de": "Controls LG TV over RS232 interface",
