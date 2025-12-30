@@ -88,7 +88,8 @@
     "materialize": true,
     "compact": true,
     "authors": [
-      "instalator"
+      "instalator",
+      "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
     ],
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.lgtv-rs/master/admin/lg.png",
@@ -103,12 +104,12 @@
     "type": "multimedia",
     "dependencies": [
       {
-        "js-controller": ">=5.0.19"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=6.13.16"
+        "admin": ">=7.6.17"
       }
     ]
   },
