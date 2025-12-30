@@ -2,15 +2,10 @@
   "name": "iobroker.lgtv-rs",
   "version": "0.2.0",
   "description": "LG TV with RS-232 to Ethernet gate",
-  "author": {
-    "name": "instalator",
-    "email": "vvvalt@mail.ru"
-  },
+  "author": "instalator <vvvalt@mail.ru>",
   "contributors": [
-    {
-      "name": "instalator",
-      "email": "vvvalt@mail.ru"
-    }
+    "instalator <vvvalt@mail.ru>",
+    "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
   ],
   "homepage": "https://github.com/iobroker-community-adapters/ioBroker.lgtv-rs",
   "license": "MIT",
