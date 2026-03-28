@@ -1,6 +1,6 @@
 "use strict";
 const utils = require('@iobroker/adapter-core');
-let net = require('net');
+let net = require('node:net');
 let lgtv_commands = require(__dirname + '/admin/commands.json'),
     COMMANDS = lgtv_commands.commands,
     COMMAND_MAPPINGS = lgtv_commands.command_mappings,
