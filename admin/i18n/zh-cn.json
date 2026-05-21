@@ -1,5 +1,7 @@
 {
     "LG TV adapter settings": "LG电视适配器设置",
+    "gateway_address": "网关地址",
+    "gateway_port": "网关端口",
     "host": "IP地址",
     "host_help": "RS232转以太网网关的IP地址或主机名",
     "port": "端口",
