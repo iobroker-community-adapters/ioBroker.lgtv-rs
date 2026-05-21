@@ -1,5 +1,7 @@
 {
     "LG TV adapter settings": "Configuración del adaptador LG TV",
     "host": "Dirección IP",
-    "port": "Puerto"
+    "host_help": "Dirección IP o nombre de host de la pasarela RS232 a Ethernet",
+    "port": "Puerto",
+    "port_help": "Puerto TCP de la pasarela (predeterminado: 23)"
 }
