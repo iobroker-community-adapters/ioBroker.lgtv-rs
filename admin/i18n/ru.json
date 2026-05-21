@@ -1,7 +1,5 @@
 {
     "LG TV adapter settings": "Настройки адаптера LG TV",
-    "gateway_address": "Адрес шлюза",
-    "gateway_port": "Порт шлюза",
     "host": "IP Адрес",
     "host_help": "IP-адрес или имя хоста шлюза RS232-Ethernet",
     "port": "Порт",

@@ -4,7 +4,7 @@
     "items": {
         "host": {
             "type": "text",
-            "label": "gateway_address",
+            "label": "host",
             "xs": 12,
             "sm": 12,
             "md": 8,
@@ -14,7 +14,7 @@
         },
         "port": {
             "type": "number",
-            "label": "gateway_port",
+            "label": "port",
             "min": 1,
             "max": 65535,
             "xs": 12,
