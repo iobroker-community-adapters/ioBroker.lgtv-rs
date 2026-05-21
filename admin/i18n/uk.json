@@ -1,0 +1,7 @@
+{
+    "LG TV adapter settings": "Налаштування адаптера LG TV",
+    "host": "IP-адреса",
+    "host_help": "IP-адреса або ім'я хоста шлюзу RS232-Ethernet",
+    "port": "Порт",
+    "port_help": "TCP-порт шлюзу (типово: 23)"
+}

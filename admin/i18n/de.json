@@ -1,0 +1,7 @@
+{
+    "LG TV adapter settings": "LG TV Adapter Einstellungen",
+    "host": "IP-Adresse",
+    "host_help": "IP-Adresse oder Hostname des RS232-zu-Ethernet-Gateways",
+    "port": "Port",
+    "port_help": "TCP-Port des Gateways (Standard: 23)"
+}

@@ -1,0 +1,28 @@
+{
+    "type": "panel",
+    "label": "LG TV adapter settings",
+    "items": {
+        "host": {
+            "type": "text",
+            "label": "host",
+            "xs": 12,
+            "sm": 12,
+            "md": 8,
+            "lg": 8,
+            "xl": 8,
+            "help": "host_help"
+        },
+        "port": {
+            "type": "number",
+            "label": "port",
+            "min": 1,
+            "max": 65535,
+            "xs": 12,
+            "sm": 12,
+            "md": 4,
+            "lg": 4,
+            "xl": 4,
+            "help": "port_help"
+        }
+    }
+}
