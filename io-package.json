@@ -85,7 +85,6 @@
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "icon": "lg.png",
-    "materialize": true,
     "compact": true,
     "authors": [
       "instalator",
@@ -111,7 +110,10 @@
       {
         "admin": ">=7.7.22"
       }
-    ]
+    ],
+    "adminUI": {
+      "config": "materialize"
+    }
   },
   "native": {
     "host": "127.0.0.1",
