@@ -10,6 +10,7 @@
   "homepage": "https://github.com/iobroker-community-adapters/ioBroker.lgtv-rs",
   "license": "MIT",
   "keywords": [
+    "ioBroker",
     "LG TV",
     "RS-232"
   ],
